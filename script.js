@@ -19,13 +19,19 @@ let nameInput = "empty"
 $(".no").on("click", function(){
     // console.log("clicked!")
     nameInput = $("#attendees").val();
+    if (nameInput === ""){
+        alert("Please input your name")
+        return;
+    }else{
     // console.log(nameInput)
 
     database.ref().push({
         name: nameInput,
         isComing: attending
     });
+
     alert("Submitted! Thanks!")
+}
 
 });
 
@@ -33,6 +39,10 @@ $(".yes").on("click", function(){
     // console.log("clicked!")
     attending = "yes";
     nameInput = $("#attendees").val();
+    if (nameInput===""){
+        alert("Please input your name")
+        return;
+    }else{
     // console.log(nameInput)
 
     database.ref().push({
@@ -40,6 +50,7 @@ $(".yes").on("click", function(){
         isComing: attending
     });
     alert("Submitted! Thanks!")
+}
 
 });
 
